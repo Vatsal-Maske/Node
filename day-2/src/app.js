@@ -68,5 +68,22 @@ app.delete("/notes/:index", (req, res) => {
   });
 });
 
+
+
+// Pach method use kiya jata ki jab bhi existiong data ko update karna ho tab
+app.patch("/notes/:index",(req,res)=>{
+  const index = req.params.index
+
+  const description = req.body.description
+
+  notes[index].description=description;
+  
+  res.status(200).json({
+    message : "Note upadated successfully"
+  })
+
+})
+
+
 // App ko export kar rahe hain (use hota hai server.js ya index.js me)
 module.exports = app;
