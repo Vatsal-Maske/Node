@@ -1,10 +1,10 @@
 const express = require('express')
-const model = require('./models/note.model');
+// const model = require('./models/note.model');
 const noteModel = require('./models/note.model');
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json());//middleware to parse json body
 
 /*
 

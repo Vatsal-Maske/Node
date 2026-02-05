@@ -14,4 +14,5 @@ async function connectDB(){
     console.log("Database connected successfully")
 }
 
+
 module.exports = connectDB;
