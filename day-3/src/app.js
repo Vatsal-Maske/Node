@@ -28,18 +28,26 @@ app.post('/notes',async (req,res)=>{
     res.status(201).json({
         message:"Note created successfully"
     })
-
-
-
-
 })
 
-
-
-module.exports =app; 
 app.get('/notes',async (req,res)=>{
-    const notes = await noteModel.find();
+    const notes = await noteModel.find(); // ye hamesha data dengi par array ke format me chahe data ho ya na ho
+
+    //findone bhi hota hai jo single object deta hai
     res.status(200).json({
-        notes:notes
+        message:"All notes fetched successfully",
+        notes:notes      
     })
 })
+
+app.delete('/notes/:id',async(req,res)=>{
+    const id = req.params.id;
+    await noteModel.findOneAndDelete({
+        _id:id
+    })
+    res.status(200).json({
+        message:"Note deleted successfully"
+    })
+})
+
+module.exports = app;
